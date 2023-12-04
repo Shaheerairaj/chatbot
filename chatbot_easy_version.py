@@ -15,7 +15,7 @@ from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 
 # openai_key = os.environ.get['OPENAI_API_KEY']
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 
 
 # This is used to pass the argument with query
