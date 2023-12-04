@@ -74,10 +74,10 @@
 </head>
 <body>
     <div id="container">
-        <h1>Chatbot v0.1</h1>
+        <h1>Chatbot App v0.1</h1>
 
         <div id="chat-container">
-            {% for message in chat_messages %}
+            {% for message in chat_history %}
                 <p>{{ message['sender'] }}: {{ message['message'] }}</p>
             {% endfor %}
         </div>

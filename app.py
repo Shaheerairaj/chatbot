@@ -2,22 +2,27 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+# Initialize an empty list to store the chat history
+chat_history = []
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', chat_history=chat_history)
 
 @app.route('/submit', methods=['POST'])
 def submit():
     user_message = request.form['user_message']
-    bot_response = "I'm a simple echo bot. Type something else!"
     
-    # Display user and bot messages in the chat container
-    chat_messages = [
-        {"sender": "You", "message": user_message},
-        {"sender": "Chatbot", "message": bot_response}
-    ]
+    # Add the user's message to the chat history
+    chat_history.append({'sender': 'You', 'message': user_message})
 
-    return render_template('index.html', chat_messages=chat_messages)
+    # Simulate a bot response (replace this with your actual bot logic)
+    bot_response = "I'm a simple echo bot. Type something else!"
+
+    # Add the bot's response to the chat history
+    chat_history.append({'sender': 'Chatbot', 'message': bot_response})
+
+    return render_template('index.html', chat_history=chat_history)
 
 if __name__ == '__main__':
     app.run(debug=True)
